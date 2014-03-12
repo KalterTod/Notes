@@ -1,4 +1,4 @@
-#### Simple API built with node, express, and mongoose with tutorial for automated RESTful testing with Mocha. 
+### Simple API built with node, express, mongoDB, and mongoose with tutorial for automated RESTful testing with Mocha. 
 ##### All of the instructions here are for use with Mac OSX.
 
 To begin, you must first CLONE this repository. For more information, I highly recommend the [Gitbook](http://git-scm.com/book). 
@@ -17,3 +17,68 @@ node.js also comes with its own package installer called npm. We can use npm now
 	
 	npm install -g express
 	npm install -g mongoose
+
+Finally, you'll also need mongo installed. Type the following:
+
+	brew install mongodb
+
+Phew! Now that we have all of that nonsense out of the way, we can get to why we're really here! 
+
+Navigate to the root directory of this Repository on your local machine.  Once there, you should run the following command:
+
+	npm install
+
+This command is using the npm installer to install all of the necessary dependencies to run the Notes API. 
+
+At this point, you're ready to run Notes API! You should play around with the API a bit to familiarize yourself with its functionality. Since we're going to be testing this API later on, we'll need a solid foundation on its intended functionality. 
+
+Because this app relies on an instance of mongoDB to be running, we'll need to open up a new terminal window and type:
+	
+	mongod
+
+You should see a message about where the documents are now being stored to verify that mongo is running. For more information, visit the [mongoDB website](https://www.mongodb.org/). 
+
+I'll skip the part here where I discuss CRUD, assuming that you already have some knowledge of this. If not, please visit [CRUD Wikipedia](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete). We will be concerning ourselves with the HTTP request/response model, and from here on will be using its terminology (GET, PUT, POST, DELETE). 
+
+Now we have all the pieces in place to test our API! If you're not there anymore, navigate back to the root directory of the respository (~/etc/Notes) and type the following:
+
+	node app.js
+
+It should respond by saying that there is a listener in port 3000. Let's starting hitting that port with requests and see what happens!
+
+As it is, this API is set up run locally. Install any REST client (I recommend [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en) Google Chrome Add-On) and do the following:
+	
+	Request URL: http://localhost:3000/notes
+	POST
+
+Select the "Raw" input method and insert the following block:
+
+	{
+		"name": "insert_name_here"
+		"body": "insert_note_body_here"
+	}
+
+Now in the header, put the following
+
+	Header -> Content-Type
+	Value -> application/json
+
+Then select "json" from the dropdown menu next to where you selected "raw". 
+
+Now hit "Send", and off your request to make a new note goes!
+
+If you see:
+ 
+	{ message: "Success!" }
+
+then everything is working as intended!
+
+To see that your note is safe and sound, send a new request:
+
+	GET
+
+to the same URL. Since this is a "GET" request, you won't need any body in the request and you won't need any header either. 
+
+You should now see your (unfortunately lonesome) note returning to you!
+
+
