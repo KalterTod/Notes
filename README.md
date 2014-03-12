@@ -1,5 +1,5 @@
-## Simple API built with node, express, and mongoose with tutorial for automated RESTful testing with Mocha. 
-### All of the instructions here are for use with Mac OSX.
+#### Simple API built with node, express, and mongoose with tutorial for automated RESTful testing with Mocha. 
+##### All of the instructions here are for use with Mac OSX.
 
 To begin, you must first CLONE this repository. For more information, I highly recommend the [Gitbook](http://git-scm.com/book). 
 
