@@ -1,4 +1,4 @@
-var Note = require('../models/notes').Notes;
+var Note = require('../models/notes').Note;
 
 exports.findAll = function(req, res) {
   Note.find({}, function(err, docs) {
