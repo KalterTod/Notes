@@ -18,10 +18,25 @@ exports.addNote = function(req, res) {
     date_created: Date.now()
   }).save( function(err) {
     if(!err) {
-      res.json(200, { message: "Success!" } )
+      res.json(200, { message: "Message successfully added!" } )
     }
     else { 
       console.log(err);
-      res.json(500, {message: "Failure!" }) }
+      res.json(500, {message: "Message failed to add!" }) }
   });
 } 
+
+exports.remove = function(req, res) {
+  Note.findById(req.body.id, function(err, doc) {
+    if (!err && doc) {
+      doc.remove();
+      res.json(200, { message: "Message successfully removed!" } );
+    }
+    else if (!err) {
+      res.json(404, { message: "Message could not be found!" } );
+    }
+    else {
+      res.json(500, { message: "Message removal failed!" } );
+    }
+  });
+}
