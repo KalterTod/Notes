@@ -40,3 +40,27 @@ exports.remove = function(req, res) {
     }
   });
 }
+
+exports.update = function(req, res) {
+  Note.findById(req.body.id, function(err, doc) {
+    if (!err && doc) {
+      doc.body = req.body.body;
+      doc.name = req.body.name; 
+      doc.save( function(err) {
+        if (!err) {
+          res.json(200, { message: "Message '" + doc.name + "' has been successfully updated!" } ); 
+        }
+        else {
+          res.json(500, { message: "Internal Server Error" } );
+        }
+      });
+    }
+    else if (!err) {
+      res.json(404, { message: "Message '" + req.body.name + "' could not be found." } );
+    }
+    else { 
+      res.json(500, { message: "Internal Server Error" } );
+    }
+  });
+}
+ 
