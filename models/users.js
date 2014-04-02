@@ -2,14 +2,13 @@ var mongoose = require('mongoose')
   , Schema = mongoose.Schema;
 
 //Create Schema for creating and reading notes
-var noteSchema = new Schema({
-  user_name: { type: String, required: true, trim: true }
+var userSchema = new Schema({
+  user_name: { type: String, required: true, trim: true, index: { unique: true } }
   , date_created: { type: Date, required: true, default: Date.now }
-  , body: { type: String, required: true }
 });
 
-var note = mongoose.model('note', noteSchema); 
+var user = mongoose.model('user', userSchema); 
 
 module.exports = {
-  Note: note
+  Users: user
 };
