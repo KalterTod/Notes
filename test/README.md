@@ -7,9 +7,9 @@ Here is the basic layout for a Mocha Test:
 	var assert = require("assert") 
 		//This is our outer describe block
 		describe('Array', function(){ 
-			// Can be thought of as the Test Case
+			//Can be thought of as the Test Case
 			describe('#indexOf()', function(){ 
-				// Acceptance Criteria
+				//Acceptance Criteria
 				it('should return -1', function(){ 
 					assert.equal(-1, results); 
 					assert.equal(-1, results); 
