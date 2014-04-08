@@ -32,7 +32,7 @@ describe('Note Created', function() {
 /*  
 *** This before function is nested inside this specific 'describe'
 *** Therefore, anything in this block will execute before the 'it'
-*** Can think of the 'it' as being the actual test case
+*** Can think of the 'it' as being the acceptance criteria for the test case
 */
 
 	before(function(done) {
@@ -51,7 +51,7 @@ describe('Note Created', function() {
 	});
 		
 	/*
-	*** Now that we have everything set up, we need a test case
+	*** Now that we have everything set up, we need to test
 	*** The acceptance criteria for the feature that a person be able to add new note
 	*** Is that there be exactly ONE new message in the database with the user_name
 	*** We created at the beginning of the script.
