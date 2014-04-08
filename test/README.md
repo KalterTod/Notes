@@ -27,44 +27,44 @@ Hooks are a very important aspect of Mocha scripts when dealing with testing nod
 
 Let's take a look at one of the tests written for this API. Use the comments to follow along: 
 ```js
-		describe('Note Created', function() {
+describe('Note Created', function() {
 		
-		/*  
-		*** This before function is nested inside this specific 'describe'
-		*** Therefore, anything in this block will execute before the 'it'
-		*** Can think of the 'it' as being the actual test case
-		*/
+/*  
+*** This before function is nested inside this specific 'describe'
+*** Therefore, anything in this block will execute before the 'it'
+*** Can think of the 'it' as being the actual test case
+*/
 
-		before(function(done) {
-			dest
-			// Similar to above, but now we are going to post to /notes instead of /users
-				.post('/notes')
-				// Note sent without a valid user should return an error
-				// We will use the user created above
-				.send( {
-					user_name: 'Test.Person',
-					body: 'This is a test note!'
-				})
-				.end(function() {
-					setTimeout(done, 200);
-				});
-		});
-		
-		/*
-		*** Now that we have everything set up, we need a test case
-		*** The acceptance criteria for the feature that a person be able to add new note
-		*** Is that there be exactly ONE new message in the database with the user_name
-		*** We created at the beginning of the script.
-		*/
-
-		it('should find a new Note for user "Test.Person" ', function(done) {
-			Notes.find({user_name: 'Test.Person'}, function(err, results) {
-				assert.equal(1, results.length);
-				done();
+	before(function(done) {
+		dest
+		// Similar to above, but now we are going to post to /notes instead of /users
+			.post('/notes')
+			// Note sent without a valid user should return an error
+			// We will use the user created above
+			.send( {
+				user_name: 'Test.Person',
+				body: 'This is a test note!'
+			})
+			.end(function() {
+				setTimeout(done, 200);
 			});
-		});
-
 	});
+		
+	/*
+	*** Now that we have everything set up, we need a test case
+	*** The acceptance criteria for the feature that a person be able to add new note
+	*** Is that there be exactly ONE new message in the database with the user_name
+	*** We created at the beginning of the script.
+	*/
+
+	it('should find a new Note for user "Test.Person" ', function(done) {
+		Notes.find({user_name: 'Test.Person'}, function(err, results) {
+			assert.equal(1, results.length);
+			done();
+		});
+	});
+
+});
 ```
 As you can probably see, we have added the note before the test is exected. By the time we get down to the 'it' block (the acceptance criteria), the note should already have been created and stored. We now need only to query the database and make sure that the note was in fact created. 
 
