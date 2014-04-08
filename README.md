@@ -48,14 +48,13 @@ It should respond by saying that there is a listener in port 3000. Let's startin
 
 As it is, this API is set up run locally. Install any REST client (I recommend [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en) Google Chrome Add-On) and do the following:
 	
-	Request URL: http://localhost:3000/notes
+	Request URL: http://localhost:3000/user
 	POST
 
 Select the "Raw" input method and insert the following block:
 
 	{
-		"name": "insert_name_here"
-		"body": "insert_note_body_here"
+		"user_name": "insert_name_here"
 	}
 
 Now in the header, put the following
@@ -69,16 +68,26 @@ Now hit "Send", and off your request to make a new note goes!
 
 If you see:
  
-	{ message: "Success!" }
+	{ message: "User added successfully!" }
 
 then everything is working as intended!
 
-To see that your note is safe and sound, send a new request:
+To see that your new user is safe and sound, send a new request:
 
 	GET
 
 to the same URL. Since this is a "GET" request, you won't need any body in the request and you won't need any header either. 
 
-You should now see your (unfortunately lonesome) note returning to you!
+You should now see your (unfortunately lonesome) user returning to you!
+
+As you continue through this repository, you should learn more about the app and all of the endpoints it has exposed for requests. I plan on doing a full API documentation in Apiary as well. Expect to see that in the coming days!
+
+For now, you can import my Postman Collection, and try the endpoints yourself!
+
+Import the following collection URL:
+
+	https://www.getpostman.com/collections/0df029b71e23aba0b34b
+
+#####Good Luck!
 
 
