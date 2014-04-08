@@ -3,7 +3,7 @@ Writing your own Mocha Test is very simple. We simply need to know the action an
 
 Here is the basic layout for a Mocha Test:
 ```js
-//This is the Assertion library. There are a few different ones (Chai, Assert, Should), but assert is the one used here.
+//This is the Assertion library. There are a few different ones(Chai, Assert, Should), but we use assert here.
 var assert = require("assert") 
 	//This is our outer describe block
 	describe('Array', function(){ 
