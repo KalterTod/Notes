@@ -25,7 +25,7 @@ As you can see, this code is very simple, but read through the comments to make 
 Hooks are a very important aspect of Mocha scripts when dealing with testing node apps because it allows us to set up the conditions necessary for a test to be executed. Going back to the example mentioned earlier, we want to test whether or not a valid addNote request was successfully handled and that the note was created and stored in the database. For this, we use hooks to first submit the request. Fortunately for us, Mocha makes adding hooks a sinch. 
 
 Let's take a look at one of the tests written for this API. Use the comments to follow along: 
-
+```js
 		describe('Note Created', function() {
 		
 		/*  
@@ -64,7 +64,7 @@ Let's take a look at one of the tests written for this API. Use the comments to 
 		});
 
 	});
-
+```
 As you can probably see, we have added the note before the test is exected. By the time we get down to the 'it' block (the acceptance criteria), the note should already have been created and stored. We now need only to query the database and make sure that the note was in fact created. 
 
 In similar fashion, we can use beforeEach and afterEach hooks to have these steps carried out before/after EVERY test. If there were multiple 'it' blocks for this specific test case (describe block), we could use these hooks instead.
