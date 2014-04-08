@@ -21,7 +21,7 @@ var assert = require("assert")
 
 As you can see, this code is very simple, but read through the comments to make sure you understand all of the pieces separately, because we're going to complicate things a bit with the next part.
 
-#Hooks
+####Hooks
 
 Hooks are a very important aspect of Mocha scripts when dealing with testing node apps because it allows us to set up the conditions necessary for a test to be executed. Going back to the example mentioned earlier, we want to test whether or not a valid addNote request was successfully handled and that the note was created and stored in the database. For this, we use hooks to first submit the request. Fortunately for us, Mocha makes adding hooks a sinch. 
 
