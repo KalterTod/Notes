@@ -49,8 +49,8 @@ describe('Notes Test', function() {
 		/*
 		*** Now that we have everything set up, we need a test case
 		*** The acceptance criteria for the feature that a person be able to add new note
-		*** is that there be exactly ONE new message in the database with the user_name
-		*** we created at the beginning of the script.
+		*** Is that there be exactly ONE new message in the database with the user_name
+		*** We created at the beginning of the script.
 		*/
 
 		it('should find a new Note for user "Test.Person" ', function(done) {
