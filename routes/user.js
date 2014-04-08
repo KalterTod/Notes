@@ -28,3 +28,18 @@ exports.findUsers = function(req, res) {
 	});
 }
 
+exports.deleteUser = function(req, res) { 
+  User.find({user_name: req.body.user_name}, function(err, doc) {
+    if(!err && doc) {
+      doc.remove();
+      res.json(200, { message: "User successfully deleted!" } )
+    }
+    else if (!err) {
+      res.json(404, { message: "User not found!" } )
+    }
+    else {
+      res.json(500, {message: "Internal Server Error" } )
+    }
+  });
+}
+

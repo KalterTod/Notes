@@ -38,10 +38,11 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/notes', notes.findAll);
 app.post('/notes', notes.addNote);
-app.del('/notes', notes.remove);
-app.put('/notes', notes.update);
+app.del('/notes', notes.deleteNote);
+app.put('/notes', notes.updateNote);
 app.post('/user', user.addUser);
 app.get('/user', user.findUsers);
+app.del('/user', user.deleteUser);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

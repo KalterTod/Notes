@@ -31,7 +31,7 @@ exports.addNote = function(req, res) {
   });
 } 
 
-exports.remove = function(req, res) {
+exports.deleteNote = function(req, res) {
   Note.findById(req.body.id, function(err, doc) {
     if (!err && doc) {
       doc.remove();
@@ -46,7 +46,7 @@ exports.remove = function(req, res) {
   });
 }
 
-exports.update = function(req, res) {
+exports.updateNote = function(req, res) {
   Note.findById(req.body.id, function(err, doc) {
     if (!err && doc) {
       doc.body = req.body.body;
