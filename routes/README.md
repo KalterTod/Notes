@@ -26,6 +26,6 @@ mongoose.connect('mongodb://localhost/notes');
 app.get('/notes', notes.findAll);
 ```
 
-These lines are not right next to eachother as I have them here because there are other endpoints, but these two lines can be thought of as the entryway to the tunnel mentioned above. We know exactly which tunnel to enter if we want to receive the results described in the function above, because we've defined as such. The second line is telling the app.js file that whenever somebody sends a GET request to the URL/notes, they should look to the routes/notes.js file for the function called "findAll" and execute that block of code. In this case, query the database for all existing notes and return them in the query. Makes perfect sense right?
+These lines are not right next to eachother as I have them here because there are other endpoints, but these two lines can be thought of as the entryway to the tunnel mentioned above. We know exactly which tunnel to enter if we want to receive the results described in the function above, because we've defined it as such. The second line is telling the app.js file that whenever somebody sends a GET request to the URL/notes, they should look to the routes/notes.js file for the function called "findAll" and execute that block of code. In this case, query the database for all existing notes and return them in the query. Makes perfect sense right?
 
 See if you can work through the rest of the routes here and find which endpoints map to the routes functions.
