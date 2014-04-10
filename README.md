@@ -64,7 +64,7 @@ Now in the header, put the following
 
 Then select "json" from the dropdown menu next to where you selected "raw". 
 
-Now hit "Send", and off your request to make a new note goes!
+Now hit "Send", and off your request to make a new user goes!
 
 If you see:
  
