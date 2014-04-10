@@ -74,6 +74,4 @@ And that's not all!
 
 If you look at the full test.js file, you'll see that there are a before/after hooks in the outer-most 'describe' block. These hooks are there to describe functions that are required before any test is run, and to clear out the database after the test, as if it were never executed in the first place. This will allow the test to have to reusability, and could even be used to test any enviroment with a few minor changes.
 
-Now it's your turn...Take a look at test_template.js
-
-I've provided you with the starting point to create your own test script. You can use the fully completed one as a guide, but you should ideally try to create your own test script. Perhaps you'll find some test coverage I haven't even included yet!
+Now it's your turn...Stay in this directory, but switch over to the branch "user-test" and follow the instructions there!
