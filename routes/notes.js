@@ -1,5 +1,5 @@
 var Note = require('../models/notes').Note;
-var User = require('../models/users').Users; 
+var User = require('../models/users').Users;
 
 exports.findAll = function(req, res) {
   Note.find({}, function(err, docs) {
@@ -15,7 +15,7 @@ exports.findAll = function(req, res) {
 exports.addNote = function(req, res) {
   User.find( { name: req.body.user_name }, function(err, docs) {
     if(docs.length == 0)
-      res.json(404, { message: "User could not be found to add message."})
+      res.json(404, { message: "User could not be found to add message." } )
   });
   new Note({
     user_name: req.body.user_name,
@@ -25,11 +25,12 @@ exports.addNote = function(req, res) {
     if(!err) {
       res.json(200, { message: "Message successfully added!" } )
     }
-    else { 
+    else {
       console.log(err);
-      res.json(500, {message: "Message failed to add!" }) }
+      res.json(500, { message: "Message failed to add!" } )
+    }
   });
-} 
+}
 
 exports.deleteNote = function(req, res) {
   Note.findById(req.body.id, function(err, doc) {
@@ -50,10 +51,10 @@ exports.updateNote = function(req, res) {
   Note.findById(req.body.id, function(err, doc) {
     if (!err && doc) {
       doc.body = req.body.body;
-      doc.user_name = req.body.user_name; 
+      doc.user_name = req.body.user_name;
       doc.save( function(err) {
         if (!err) {
-          res.json(200, { message: "Message '" + doc.name + "' has been successfully updated!" } ); 
+          res.json(200, { message: "Message '" + doc.name + "' has been successfully updated!" } );
         }
         else {
           res.json(500, { message: "Internal Server Error" } );
@@ -63,9 +64,8 @@ exports.updateNote = function(req, res) {
     else if (!err) {
       res.json(404, { message: "Message '" + req.body.user_name + "' could not be found." } );
     }
-    else { 
+    else {
       res.json(500, { message: "Internal Server Error" } );
     }
   });
 }
- 
