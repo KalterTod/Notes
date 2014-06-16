@@ -86,6 +86,6 @@ For now, you can import my Postman Collection, and try the endpoints yourself!
 
 Import the following collection URL:
 
-  https://www.getpostman.com/collections/0098f413345ef60672ca
+	https://www.getpostman.com/collections/0098f413345ef60672ca
 
 #####Good Luck!
