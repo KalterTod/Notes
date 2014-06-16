@@ -54,13 +54,15 @@ exports.deleteNote = function(req, res) {
 
 exports.getUserNotes = function(req, res) {
   User.findById(req.params.id, function(err, doc) {
-
-    Note.find({user_name: doc.user_name}, function(err, doc) {
-      if(!err) {
-        res.json(200, doc);
-      }
-      else {res.json(500, {message: "Internal Server Error"})}
-    });
+    if(!err && doc){
+      Note.find({user_name: doc.user_name}, function(err, doc) {
+        if(!err) {
+          res.json(200, doc);
+        }
+        else {res.json(500, {message: "Internal Server Error"})}
+      });
+    }
+    else{res.json(404, {message:"User not found"} )};
   });
 
 }

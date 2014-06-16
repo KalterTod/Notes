@@ -1,4 +1,5 @@
 var User = require('../models/users').Users;
+var Note = require('../models/notes').Note;
 /*
  * GET users listing.
  */
@@ -45,7 +46,14 @@ exports.deleteUser = function(req, res) {
     User.findById(id, function(err, doc) {
 
       if(!err && doc) {
+        console.log(doc)
         doc.remove();
+        Note.find({user_name: req.body.user_name}, function(err, doc) {
+          if(!err && doc){
+            console.log(doc);
+            doc[0].remove();
+          }
+        });
         res.json(200, { message: "User successfully deleted!" } )
       }
       else if (!err) {
