@@ -42,13 +42,9 @@ exports.findUsers = function(req, res) {
 exports.deleteUser = function(req, res) {
   User.find({"user_name": req.body.user_name}, function(err, doc) {
     var id = doc[0]._id
-    console.log(doc[0]);
-    console.log(doc[0]._id);
-    console.log(id);
     User.findById(id, function(err, doc) {
 
       if(!err && doc) {
-        console.log(doc);
         doc.remove();
         res.json(200, { message: "User successfully deleted!" } )
       }
