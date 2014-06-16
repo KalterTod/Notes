@@ -43,6 +43,8 @@ app.put('/notes', notes.updateNote);
 app.post('/user', user.addUser);
 app.get('/user', user.findUsers);
 app.del('/user', user.deleteUser);
+app.get('/user/:id', user.findUser);
+app.get('/user/:id/notes', notes.getUserNotes);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
