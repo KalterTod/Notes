@@ -52,6 +52,7 @@ describe('Notes Test', function() {
 */
 
 	after(function(done) {
+		console.log('here');
 			URL
 				.del('/user')
 				.send({
@@ -59,8 +60,8 @@ describe('Notes Test', function() {
 				})
 				.end(function() {
 					setTimeout(done, 2000);
+					done();
 				});
-			done();
 	});
 // Try writing this code with beforeEach and afterEach. These hooks are designed to execute after each of the describe blocks nested inside
 
@@ -104,7 +105,6 @@ describe('Notes Test', function() {
 					assert.equal(res.status, 200);
 					done();
 				})
-
 
 		});
 
@@ -150,7 +150,7 @@ describe('Notes Test', function() {
 	});
 
 	describe('User Not Found', function() {
-		before(function(done) {
+		it('should not allow this note to work due to no user found', function(done) {
 			URL
 				.post('/notes')
 				.send( {
