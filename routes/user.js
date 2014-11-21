@@ -42,7 +42,6 @@ exports.deleteUser = function(req, res) {
   User.find({"user_name": req.body.user_name}, function(err, doc) {
     var id = doc[0]._id;
     User.findById(id, function(err, doc) {
-
       if(!err && doc) {
         doc.remove();
         Note.find({user_name: req.body.user_name}, function(err, doc) {

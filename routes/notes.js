@@ -5,8 +5,7 @@ exports.findAll = function(req, res) {
   Note.find({}, function(err, docs) {
     if(!err) {
       res.json(200, {notes: docs});
-    }
-    else {
+    } else {
       res.json(500, {message: err});
     }
   });
@@ -25,8 +24,7 @@ exports.addNote = function(req, res) {
       }).save( function(err) {
         if(!err) {
           res.json(200, { message: "Message successfully added!"});
-        }
-        else {
+        } else {
           console.log(err);
           res.json(500, { message: "Message failed to add!"});
         }
@@ -41,11 +39,9 @@ exports.deleteNote = function(req, res) {
       console.log(doc);
       doc.remove();
       res.json(200, {message: "Message successfully removed!"});
-    }
-    else if (!err) {
+    } else if (!err) {
       res.json(404, {message: "Message could not be found!"});
-    }
-    else {
+    } else {
       res.json(500, {message: "Message removal failed!"});
     }
   });
