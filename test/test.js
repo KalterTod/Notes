@@ -55,15 +55,15 @@ describe('Notes Test', function() {
 
 	after(function(done) {
 		console.log('here');
-			URL
-				.del('/user')
-				.send({
-					user_name: name
-				})
-				.end(function() {
-					setTimeout(done, 2000);
-					done();
-				});
+		URL
+			.del('/user')
+			.send({
+				user_name: name
+			})
+			.end(function() {
+				setTimeout(done, 2000);
+				done();
+			});
 	});
 // Try writing this code with beforeEach and afterEach. These hooks are designed to execute after each of the describe blocks nested inside
 
@@ -99,7 +99,6 @@ describe('Notes Test', function() {
 		*/
 
 		it('should find a new note for user ' + name, function(done) {
-
 			URL
 				// Get the list of notes for that user to make sure it was saved
 				.get("/user/"+userID+"/notes")
