@@ -1,5 +1,5 @@
 var assert = require('assert');
-var dest = ;// Put the root URL for your requests
+var dest ="" ;// Put the root URL for your requests
 var id = ""; // Globally defined variable that you need to figure out how to set for use in future test!
 
 //Don't be afraid to switch back to Master branch if you get stuck!
@@ -61,9 +61,8 @@ describe('Notes Test', function() {
 				.send()
 				.end(function() {
 					// Assert what allows this test to pass!
-				})
+				});
 		});
-
 	});
 
 // For this one, you're on your own! Use all of the tools you now have, and build this test case yourself!
@@ -71,5 +70,4 @@ describe('Notes Test', function() {
 		// Good luck!
 
 	});
-
 });
