@@ -23,7 +23,7 @@ describe('Notes Test', function() {
 
 			for( var i=0; i < 5; i++ ){
 					name += possible.charAt(Math.floor(Math.random() * possible.length));
-				};
+				}
 
 			URL // Set up the script to send requests to the destination URL defined above
 				.post('/user') // Request type
@@ -107,10 +107,8 @@ describe('Notes Test', function() {
 				.end(function(err, res) {
 					assert.equal(res.status, 200);
 					done();
-				})
-
+				});
 		});
-
 	});
 
 	describe('Update Note', function() {
@@ -124,7 +122,7 @@ describe('Notes Test', function() {
 					assert.equal(res.status, 200);
 					noteID = res.body[0]._id;
 					done();
-				})
+				});
 		});
 
 		it('should Update a note and change the body', function(done) {
@@ -138,7 +136,7 @@ describe('Notes Test', function() {
 				.end(function(err, res) {
 					assert.equal(res.status, 200);
 					done();
-				})
+				});
 		});
 
 		it('should find the Updated note with new body', function(done) {
@@ -150,8 +148,8 @@ describe('Notes Test', function() {
 					assert.equal(res.status, 200);
 					assert.equal(res.body[0].body, "This is an updated note!");
 					done();
-				})
-		})
+				});
+		});
 
 	});
 
@@ -171,9 +169,5 @@ describe('Notes Test', function() {
 					done();
 				});
 		});
-
-
 	});
-
-
 });
